@@ -219,7 +219,7 @@ export async function run(): Promise<void> {
       core.endGroup()
     }
 
-    core.info('GT Translation action completed successfully! 🎉')
+    core.info('General Translation, action completed successfully! 🎉')
   } catch (error) {
     if (error instanceof Error) {
       core.setFailed(error.message)

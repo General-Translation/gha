@@ -52,6 +52,8 @@ jobs:
         with:
           api-key: ${{ secrets.GT_API_KEY }}
           create-pull-request: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Print Output
         id: output
