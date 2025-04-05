@@ -1,24 +1,53 @@
-name: The name of your action here
-description: Provide a description here
-author: Your name or organization here
-
-# Add your action's branding here. This will appear on the GitHub Marketplace.
+name: 'General Translation'
+description: 'Automatically translate your project with General Translation'
+author: 'General Translation'
 branding:
-  icon: heart
-  color: red
+  icon: 'globe'
+  color: 'blue'
 
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: Your input description here
+  node-version:
+    description: 'Node.js version to use'
+    default: '20'
+    required: false
+  working-directory:
+    description: 'Directory where gt.config.json is located'
+    default: '.'
+    required: false
+  api-key:
+    description: 'General Translation API key'
     required: true
-    default: '1000'
+  project-id:
+    description: 'General Translation project ID'
+    required: true
+  commit-message:
+    description: 'Commit message for translation updates'
+    default: 'Update translations via GT Action'
+    required: false
+  branch-name:
+    description:
+      'Branch name for translation updates (leave empty to commit directly to
+      current branch)'
+    required: false
+  create-pull-request:
+    description: 'Whether to create a pull request'
+    default: 'false'
+    required: false
+  pull-request-title:
+    description: 'Title for the pull request'
+    default: 'Update translations'
+    required: false
+  pull-request-body:
+    description: 'Body for the pull request'
+    default: 'This PR updates translations via the GT Action'
+    required: false
 
-# Define your outputs here.
 outputs:
-  time:
-    description: Your output description here
+  pull-request-url:
+    description: 'URL of the created pull request'
+  pull-request-number:
+    description: 'Number of the created pull request'
 
 runs:
-  using: node20
-  main: dist/index.js
+  using: 'node20'
+  main: 'dist/index.js'

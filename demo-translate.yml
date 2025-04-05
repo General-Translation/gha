@@ -1,0 +1,44 @@
+name: GT Translate
+
+on:
+  # Trigger on push to main branch
+  push:
+    branches:
+      - main
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+  # Schedule daily translation update
+  schedule:
+    - cron: '0 0 * * *' # Run at midnight UTC every day
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+
+    # Required permissions
+    permissions:
+      contents: write # For git operations
+      pull-requests: write # For creating PRs
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history for all branches and tags
+
+      - name: Run GT Translate
+        uses: your-username/gt-translate-action@v1 # Replace with your actual username
+        with:
+          api-key: ${{ secrets.GT_API_KEY }}
+          project-id: ${{ secrets.GT_PROJECT_ID }}
+          # Optional configuration
+          working-directory: '.' # Path where gt.config.json is located
+          branch-name: 'translation-updates'
+          create-pull-request: 'true'
+          pull-request-title: 'Update translations'
+          pull-request-body:
+            'This PR updates translations from General Translation.'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
