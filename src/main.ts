@@ -91,11 +91,11 @@ export async function run(): Promise<void> {
     // Step 3: Setup git config
     core.startGroup('Step 3: Setting up git configuration')
     try {
-      await exec.exec('git', ['config', 'user.name', 'github-actions[bot]'])
+      await exec.exec('git', ['config', 'user.name', 'generaltranslation-bot'])
       await exec.exec('git', [
         'config',
         'user.email',
-        'github-actions[bot]@users.noreply.github.com'
+        'bot@generaltranslation.com'
       ])
       core.info('Git configuration complete')
     } catch (error) {
