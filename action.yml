@@ -18,11 +18,13 @@ inputs:
     description: 'General Translation API key'
     required: true
   project-id:
-    description: 'General Translation project ID'
-    required: true
+    description:
+      'General Translation project ID (leave empty if provided in the
+      gt.config.json file)'
+    required: false
   commit-message:
     description: 'Commit message for translation updates'
-    default: 'Update translations via GT Action'
+    default: 'Update translations via General Translation API'
     required: false
   branch-name:
     description:
@@ -39,7 +41,7 @@ inputs:
     required: false
   pull-request-body:
     description: 'Body for the pull request'
-    default: 'This PR updates translations via the GT Action'
+    default: 'This PR updates translations via the General Translation API'
     required: false
 
 outputs:

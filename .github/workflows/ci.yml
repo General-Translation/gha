@@ -50,6 +50,7 @@ jobs:
         uses: ./
         with:
           api-key: ${{ secrets.GT_API_KEY }}
+          create-pull-request: true
 
       - name: Print Output
         id: output
