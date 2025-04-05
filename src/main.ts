@@ -21,7 +21,7 @@ export async function run(): Promise<void> {
     const commitMessage =
       core.getInput('commit-message') || 'Update translations via GT Action'
     const branchName = core.getInput('branch-name')
-    const createPullRequest = core.getInput('create-pull-request') === 'true'
+    const createPullRequest = core.getInput('create-pull-request') == 'true'
     const pullRequestTitle =
       core.getInput('pull-request-title') || 'Update translations'
     const pullRequestBody =
